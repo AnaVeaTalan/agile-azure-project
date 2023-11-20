@@ -104,6 +104,55 @@ python3 -m venv ~/.myrepo
 ![Alt text](image-5.png)
 ![Alt text](image-6.png)
 
+### 2. Configure GitHub Actions
+
+- Go to actions in the repository and create a yml file and verify that the tests pass, copy the badge in your GitHub README
+
+![Alt text](image-7.png)
+
+You can find all this files in [this repository](https://github.com/AnaVeaTalan/AgileProject/tree/main)
+
+### 3. Continuos delivery with Azure
+
+- Clone the Flask Machine Learning code on a new repository.
+
+- You'll need to create a virtual environment and install the packages with make all.
+
+![Alt text](image-8.png)
+
+- Create the webapp with the command 
+```bash
+az webapp up -n <webappname> -l westeurope --resource-group Azuredevops. 
+```
+![Alt text](image-9.png)
+![Alt text](image-10.png)
+- Give permissions to run the code
+```bash
+chmod +x make_predict_azure_app.sh 
+```
+- Then run the prediction with the command  
+```bash
+./make_predict_azure_app.sh.
+```
+![Alt text](image-11.png)
+
+- You can view the application logs with
+```bash
+az webapp log tail 
+```
+![Alt text](image-12.png)
+
+### 3. Load testing
+
+- First you will need to install locust
+```bash
+pip install locust
+```
+- Create some tests using locust and run them in your local terminal 
+```bash
+./<filename>.sh 
+```
+Which will run the locust file. You have to change the file to the name of your app You can see the results in the localhost 8089.
 
 
 
