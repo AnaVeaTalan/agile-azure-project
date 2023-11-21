@@ -154,23 +154,56 @@ pip install locust
 ```
 Which will run the locust file. You have to change the file to the name of your app You can see the results in the localhost 8089.
 
+### 4. Create an azure pipeline
 
+- First you'll need to create an azure organization
 
+![Alt text](image-13.png)
 
-* Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
+- Then you should allow public projects in the organization settings, to then create a public project
 
-* Running Azure App Service from Azure Pipelines automatic deployment
+![Alt text](image-14.png)
 
-* Successful prediction from deployed flask app in Azure Cloud Shell.  [Use this file as a template for the deployed prediction](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/blob/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn/make_predict_azure_app.sh).
-The output should look similar to this:
+- Next step it's to create an access token, save it for later
 
+![Alt text](image-15.png)
+
+- You need to create a service connection you can find this in the project settings
+
+![Alt text](image-16.png)
+
+- Then run the following command, to download an agent
 ```bash
-udacity@Azure:~$ ./make_predict_azure_app.sh
-Port: 443
-{"prediction":[20.35373177134412]}
+curl -O https://vstsagentpackage.azureedge.net/agent/3.227.2/vsts-agent-linux-x64-3.227.2.tar.gz
 ```
+- Create a new directory to save your new agent, you can use the following command 
+```bash
+mkdir myagent && cd myagent.
+```
+![Alt text](image-17.png)
+- Then extract the agent 
+```bash
+tar zxvf ../vsts-agent-linux-x64-3.227.2.tar.gz
+```
+- After extracting, your directory should look like this
+![Alt text](image-18.png)
 
-* Output of streamed log files from deployed application
+- To make the agent configuration you'll just need to run the following command, fill in with your organization url and access token when asked.
+```bash
+./config.sh
+```
+![Alt text](image-19.png)
+
+- Then change your agent to online mode, with the command
+```bash
+./run.sh
+```
+- Finally create a project pipeline, you can choose a yaml starter and you should change the name of the pool to the one you created.
+
+- That it's it, then you have a running azure pipeline
+
+![Alt text](image-20.png)
+![Alt text](image-21.png)
 
 > 
 
