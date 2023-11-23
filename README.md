@@ -19,10 +19,9 @@ By operationalizing the Flask app and applying CI/CD skills, the project aims to
 
 ## Instructions
 
-<TODO:  
-* Architectural Diagram (Shows how key parts of the system work)>
+### Architectural Diagram 
 
-<TODO:  Instructions for running the Python project.  How could a user with no context run this project without asking you for any help.  Include screenshots with explicit steps to create that work. Be sure to at least include the following screenshots:
+![Alt text](image-22.png)
 
 ### 1. Setup Azure Cloud Shell
    - Create GitHub Repository
@@ -154,6 +153,8 @@ pip install locust
 ```
 Which will run the locust file. You have to change the file to the name of your app You can see the results in the localhost 8089.
 
+![Alt text](image-23.png)
+
 ### 4. Create an azure pipeline
 
 - First you'll need to create an azure organization
@@ -209,10 +210,8 @@ tar zxvf ../vsts-agent-linux-x64-3.227.2.tar.gz
 
 ## Enhancements
 
-<TODO: A short description of how to improve the project in the future>
+In the future, add Kubernetes for support in the scale of the project, this will enable to deploy and manage containers, ensuring high availability and scalability.
 
 ## Demo 
 
 <TODO: Add link Screencast on YouTube>
-
-
